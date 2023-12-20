@@ -9,19 +9,33 @@
     <script th:src="@{/js/code.jquery.com_jquery-3.7.0.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
 
-    <title>Проект Автонарушители</title>
+    <title>Автомобильные инциденты</title>
 </head>
 <body>
 <div class="container-fluid p-0">
     <header th:insert="~{blocks/header :: header}"></header>
     <div class="container mt-2">
-        <h3>Проект job4j_accidents, выполняемый в рамках курса Job4j</h3>
-<!--        <ul>-->
-<!--            <li><a th:href="@{/vacancies}">Вакансии</a></li>-->
-<!--            <li><a th:href="@{/candidates}">Кандидаты</a></li>-->
-<!--            <li><a th:href="@{/vacancies/create}">Создать вакансию</a></li>-->
-<!--            <li><a th:href="@{/candidates/create}">Создать резюме</a></li>-->
-<!--        </ul>-->
+        <h3>Автомобильные инциденты</h3>
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Адрес</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="accident: ${accidents}">
+                    <td th:text="${accident.id}" />
+                    <td th:text="${accident.name}"/>
+                    <td th:text="${accident.text}"/>
+                    <td th:text="${accident.address}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <footer th:insert="~{blocks/footer :: footer}"></footer>
 </div>
